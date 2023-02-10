@@ -2,7 +2,7 @@
 prerequisites: docker, scala, python
 
 To start the Kafka stack run:
-`python docker/start.py`
+`python kafka_docker/start.py`
 
 To build/run the streams app:
 `sbt run`
