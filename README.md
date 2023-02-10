@@ -1,8 +1,11 @@
 # incubator-flagon-tap
-prerequisites: docker, scala
+prerequisites: docker, scala, python
 
-To start Kafka run:
-`docker-compose up -d`
+To start the Kafka stack run:
+`python docker/start.py`
 
-To build/run this scala app:
+To build/run the streams app:
 `sbt run`
+
+Start script and .yml files are derived from here:
+https://developer.confluent.io/get-started/rest/
