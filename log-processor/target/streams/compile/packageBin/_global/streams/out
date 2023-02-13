@@ -1,9 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\target\scala-2.13\log-processor_2.13-0.1.0-SNAPSHOT.jar ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Tap$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\target\scala-2.13\classes\Tap$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Tap$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\target\scala-2.13\classes\Tap$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Tap.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\target\scala-2.13\classes\Tap.class[0m
-[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
