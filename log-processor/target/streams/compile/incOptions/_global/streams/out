@@ -1,2 +1,16 @@
 [0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\target\scala-2.13\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRolling back changes to class files.[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRestoring class files: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Tap$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\target\scala-2.13\classes.bak[0m

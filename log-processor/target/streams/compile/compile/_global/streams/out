@@ -1,2 +1,4 @@
-[0m[[0m[33mwarn[0m] [0m[0m2 deprecations (since 2.7.0); re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\jky\ARLIS\incubator-flagon-tap\log-processor\src\main\scala\Tap.scala:30:3: not found: value sleep[0m
+[0m[[0m[31merror[0m] [0m[0m  sleep(30)[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

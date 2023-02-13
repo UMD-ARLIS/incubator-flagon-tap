@@ -27,6 +27,7 @@ object Tap extends App {
   val streams = new KafkaStreams(topology, props)
 
   streams.start()
+  sleep(30)
 
   Runtime.getRuntime.addShutdownHook(new Thread(() => streams.close()))
 }
