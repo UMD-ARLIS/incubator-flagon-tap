@@ -14,23 +14,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tap;
+package tap.stream;
 
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
+import org.apache.kafka.streams.kstream.TimeWindows;
 
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
+import java.time.Duration;
 
-/**
- * In this example, we implement a simple Pipe program using the high-level Streams DSL
- * that reads from a source topic "streams-plaintext-input", where the values of messages represent lines of text,
- * and writes the messages as-is into a sink topic "streams-pipe-output".
- */
-public class Pipe {
+public class Tap {
+
+    private static KafkaJsonSchemaSerde<Log> logSerde(Properties props) {
+        final KafkaJsonSchemaSerde<Log> jsonSchemaSerde = new KafkaJsonSchemaSerde<>();
+        Map<String, Object> serdeConfig = new HashMap<>();
+        serdeConfig.put(SCHEMA_REGISTRY_URL_CONFIG, props.getProperty("schema.registry.url"));
+        jsonSchemaSerde.configure(serdeConfig, false);
+        return jsonSchemaSerde;
+    }
+
+    protected Topology buildTopology(Properties props, final KafkaJsonSchemaSerde<Log> jsonSchemaSerde) {
+        final StreamsBuilder builder = new StreamsBuilder();
+        
+        KStream<String, JsonNode> rawStream =
+            builder.stream("raw-logs")
+            .peek((key, value) -> System.out.println("Key: " + key + " Value: " + value));
+
+        rawStream.groupByKey()
+                 .windowedBy(TimeWindows.ofSizeAndGrace(Duration.ofSeconds(30),  Duration.ofMinutes(1)))
+                //  .peek((key, value) -> System.out.println("Key: " + key + " Value: " + value));
+    
+        return builder.build();
+    }
 
     public static void main(String[] args) {
         Properties props = new Properties();
@@ -38,12 +57,9 @@ public class Pipe {
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        props.put("schema.registry.url", "http://localhost:8081");
 
-        final StreamsBuilder builder = new StreamsBuilder();
-
-        builder.stream("raw-logs").to("processed-logs");
-
-        final Topology topology = builder.build();
+        Topology topology = this.buildTopology(props, this.logSerde(props));
         final KafkaStreams streams = new KafkaStreams(topology, props);
         final CountDownLatch latch = new CountDownLatch(1);
 
