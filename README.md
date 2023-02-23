@@ -1,5 +1,5 @@
 # incubator-flagon-tap
-prerequisites: docker, maven, python
+prerequisites: docker, maven, python, java
 
 To start the Kafka stack run:
 `python kafka_docker/start.py`
