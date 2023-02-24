@@ -1,16 +1,11 @@
 # incubator-flagon-tap
-prerequisites: docker, maven, python, java
+prerequisites: docker, maven, java
 
-To start the Kafka stack run:
-`python kafka_docker/start.py`
+To start the Kafka stack:
+`docker-compose up -d`
 
-Start script and .yml files are derived from here:
-https://developer.confluent.io/get-started/rest/
-
-
-To build and run the streams app (run from flagon-tap/):
+To compile the streams app:
 `mvn clean package`
-`mvn exec:java "-Dexec.mainClass=tap.Pipe"`
 
-maven archetype and Pipe code are taken from here:
-https://kafka.apache.org/34/documentation/streams/tutorial
+To run the streams app:
+`mvn exec:java "-Dexec.mainClass=tap.Tap"`
