@@ -109,26 +109,23 @@ public class Tap {
     @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "logType")
     @JsonSubTypes({
         @JsonSubTypes.Type(value = RawLog.class, name = "raw"),
-        @JsonSubTypes.Type(value = RawLog.class, name = "custom")
-                  })
-    public interface JSONSerdeCompatible {
-    }
+    })
+    public interface JSONSerdeCompatible {}
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     static public class RawLog implements JSONSerdeCompatible {
         public String target;
-        // public String path;
-        // public String pageUrl;
-        // public String pageTitle;
-        // public String pageReferrer;
-        // public String browser;
+        public String[] path;
+        public String pageUrl;
+        public String pageTitle;
+        public String pageReferrer;
+        public Map<String, String> browser;
         public Long clientTime;
-        // public Long microTime;
-        // public String location;
-        // public String scrnRes;
+        public Long microTime;
+        public Map<String, Integer> location;
+        public Map<String, Integer> scrnRes;
         public String type;
         public String userAction;
-        // public String details;
+        public Map<String, Object> details;
         public String userId;
         public String toolVersion;
         public String toolName;
