@@ -29,11 +29,11 @@ public class JsonTimestampExtractor implements TimestampExtractor {
     @Override
     public long extract(final ConsumerRecord<Object, Object> record, final long partitionTime) {
         if (record.value() instanceof Tap.RawLog) {
-            return ((Tap.RawLog) record.value()).clientTime;
+            return ((Tap.RawLog) record.value()).clientTime + ((Tap.RawLog) record.value()).microTime;
         }
 
         if (record.value() instanceof JsonNode) {
-            return ((JsonNode) record.value()).get("clientTime").longValue();
+            return ((JsonNode) record.value()).get("clientTime").longValue() + ((JsonNode) record.value()).get("microTime").longValue();
         }
 
         throw new IllegalArgumentException("JsonTimestampExtractor cannot recognize the record value " + record.value());
