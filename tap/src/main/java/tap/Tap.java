@@ -120,7 +120,7 @@ public class Tap {
         public String pageReferrer;
         public Map<String, String> browser;
         public Long clientTime;
-        public Long microTime;
+        public Double microTime;
         public Map<String, Integer> location;
         public Map<String, Integer> scrnRes;
         public String type;
